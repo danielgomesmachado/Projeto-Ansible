@@ -1,0 +1,23 @@
+---
+- name: Configurar servidores web
+  hosts: webservers
+  become: false
+
+  tasks:
+    - name: Atualizar cache de pacotes
+      apt:
+        update_cache: yes
+
+    - name: Instalar nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Verificar se nginx está instalado
+      command: nginx -v
+      register: nginx_version
+      changed_when: false
+
+    - name: Exibir versão do nginx
+      debug:
+        msg: "{{ nginx_version.stderr }}"
