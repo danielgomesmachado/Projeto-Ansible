@@ -1,4 +1,4 @@
-# projeto-ansible
+# Projeto Ansible
 
 Laboratório prático de automação de infraestrutura com Ansible, executado localmente usando containers Docker como servidores gerenciados.
 
